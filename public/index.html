@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+	<head>
+		<title>tic-tac-toe</title>
+		<link href="/css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="/css/style.css" rel="stylesheet" type="text/css" />
+		<script src="/js/jquery-2.1.4.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="/js/main.js"></script>
+	</head>
+	<body>
+		<div id="loginBlock">
+			<span id="nameSpan">NAME:</span>
+			<input id="nameInput" type=text autocomplete="off" onkeydown="login(event.keyCode);" autofocus/>
+			<button class="blueButton" id="nameSend" onclick="login(13)">Login</button>
+		</div>
+		<div id="roomListBlock">
+			<div id="listBlock">
+				<ul id="roomList">
+				</ul>
+			</div>
+			<div id="listMenu">
+				<button id="goToCreateRoomButton" class="blueButton" onclick="goToCreateRoom();">Create Room</button>
+			</div>
+		</div>
+		<div id="createRoomBlock">
+			<span id="spanRoomName">Room Name</span>
+			<input id="roomName" autocomplete="off" placeholder="max 8 symbols" onkeydown="createRoom(event.keyCode);"/>
+			<span id="spanRoomSize">Room Size</span>
+			<input id="roomSize" autocomplete="off" placeholder="10-20" onkeydown="createRoom(event.keyCode);"/>
+			<button class="blueButton" id="createRoomButton" onclick="createRoom(13);">Create</button>
+			<button class="blueButton" id="backToRoomListBlockFromCreateRoom" onclick="backToRoomListFromCreateRoom();">Exit</button>
+		</div>
+		<div id="gameBlock">
+			<div id="gameFieldBlock">
+				<table id="gameTableField">
+				</table>
+			</div>
+			<div id="gameMenu">
+				<div id="chat">
+					<div id="chatListBlock">
+						<ul id="chatList">
+						</ul>
+					</div>
+					<input id="message" onkeydown="sendMessage(event.keyCode);"/>
+				</div>	
+				<div id="clients">
+					<div id="clientsListBlock">
+						<ul id="clientsList">
+						</ul>
+					</div>
+					<button class="blueButton" id="backToRoomListBlockFromGameField" onclick="backToRoomListBlockFromGameField();">Back</button>
+				</div>
+			</div>
+		</div>
+		<div id="errorBlock">
+			<br/>
+			<br/>
+			<span id="spanError">error</span>
+			<button class="blueButton" id="closeError" onclick="closeError();">Close</button>
+		</div>
+	</body>
+</html>
